@@ -34,5 +34,9 @@ spec:
           value: "false"
         - name: DRONE_ADMIN
           value: gjtempleton,octocat
+        - name: DATABASE_DRIVER
+          value: sqlite3
+        - name: DATABASE_CONFIG
+          value: "/var/lib/drone/drone.sqlite"
         ports:
         - containerPort: 80
