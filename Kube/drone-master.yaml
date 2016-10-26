@@ -19,7 +19,7 @@ spec:
         - name: GET_HOSTS_FROM
           value: dns
         - name: DRONE_GITHUB_CLIENT
-	  value: super_secret_client
+          value: super_secret_client
         - name: DRONE_GITHUB_SECRET
           value: super_secret_secret
         - name: DRONE_GITHUB
