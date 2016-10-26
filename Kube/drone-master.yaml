@@ -1,5 +1,5 @@
 apiVersion: v1
-kind: ReplicationController
+kind: Service
 metadata:
   name: drone-master
   labels:
@@ -8,28 +8,9 @@ metadata:
     tier: frontend
     name: drone-master
 spec:
-  containers:
-    - name: master
-      image: drone/drone:0.5
-      resources:
-        requests:
-          cpu: 200m
-          memory: 200Mi
-      env:
-        - name: GET_HOSTS_FROM
-          value: dns
-        - name: DRONE_GITHUB_CLIENT
-          value: super_secret_client
-        - name: DRONE_GITHUB_SECRET
-          value: super_secret_secret
-        - name: DRONE_GITHUB
-          value: true
-        - name: DRONE_SECRET
-          value: drone_secret
-        - name: DRONE_OPEN
-          value: false
-        - name: DRONE_ADMIN
-          value: gjtempleton,octocat
-      ports:
-        - containerPort: 80
-          name: drone-master
+  type: LoadBalancer
+  ports:
+  - port: 80
+  selector:
+    app: drone05
+    tier: frontend
