@@ -27,12 +27,12 @@ spec:
         - name: DRONE_GITHUB_SECRET
           value: super_secret_secret
         - name: DRONE_GITHUB
-          value: true
+          value: "true"
         - name: DRONE_SECRET
           value: drone_secret
         - name: DRONE_OPEN
-          value: false
+          value: "false"
         - name: DRONE_ADMIN
           value: gjtempleton,octocat
         ports:
-        - port: 80
+        - containerPort: 80
